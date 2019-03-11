@@ -305,8 +305,10 @@
 				'.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-body"]'
 			).children();
 			if ( 0 >= productMetaboxSuggestions.length ) {
-				$( '.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-header"]' ).slideUp();
+				$( 'ul.wc-tabs.product_data_tabs li.marketplace-suggestions_options.marketplace-suggestions_tab' ).fadeOut();
+				$( '.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-header"]' ).fadeOut();
 				$( '.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-body"]' ).fadeOut();
+				$( '.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-footer"]' ).fadeOut();
 			}
 		}
 
