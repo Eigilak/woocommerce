@@ -305,10 +305,18 @@
 				'.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-body"]'
 			).children();
 			if ( 0 >= productMetaboxSuggestions.length ) {
-				$( 'ul.wc-tabs.product_data_tabs li.marketplace-suggestions_options.marketplace-suggestions_tab' ).fadeOut();
-				$( '.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-header"]' ).fadeOut();
-				$( '.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-body"]' ).fadeOut();
-				$( '.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-footer"]' ).fadeOut();
+				var metaboxSuggestionsUISelector =
+					'.marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-body"]';
+				metaboxSuggestionsUISelector +=
+					', .marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-header"]';
+				metaboxSuggestionsUISelector +=
+					', .marketplace-suggestions-container[data-marketplace-suggestions-context="product-edit-meta-tab-footer"]';
+				$( metaboxSuggestionsUISelector ).fadeOut( {
+					complete: function() {
+						$( '.marketplace-suggestions-metabox-nosuggestions-placeholder' ).fadeIn();
+					}
+				} );
+
 			}
 		}
 
